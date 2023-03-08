@@ -30,7 +30,7 @@ defmodule RedixPool.Worker do
 
   defp connect do
     redis_url = Config.get(:redis_url, @redis_url)
-    redix_config = Config.get(:redix, %{})
+    redix_config = Config.get(:redix, [])
     {:ok, conn} = Redix.start_link(redis_url, redix_config)
     conn
   end
